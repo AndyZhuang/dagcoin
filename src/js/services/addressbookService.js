@@ -16,8 +16,7 @@
       favorites,
       add,
       update,
-      remove,
-      removeAll
+      remove
     };
 
     function addressBookKey() {
@@ -146,16 +145,6 @@
           }
           return list((listError, addressBook) => cb(listError, addressBook));
         });
-      });
-    }
-
-    function removeAll(cb) {
-      contacts = {};
-      storageService.remove(addressBookKey(), (err) => {
-        if (err) {
-          return cb('Error deleting addressbook');
-        }
-        return cb();
       });
     }
   }

@@ -1,6 +1,6 @@
 <div class="navbar-container" ng-class="{'invert':invert}">
     <div class="navbar-container-triggers">
-        <span ng-show="showBack" ng-click="go();">
+        <span ng-show="showBack" ng-click="goStateBack();">
             <svg-icon name="arrow_back" class="back-button"></svg-icon>
         </span>
 
@@ -10,5 +10,5 @@
     </div>
     <div class="navbar-container-title">{{title}}</div>
 
-    <ng-transclude><div class="navbar-container-triggers-right"></div></ng-transclude>
+    <div class="navbar-container-triggers navbar-container-triggers-right"><ng-transclude></ng-transclude></div>
 </div>

@@ -27,13 +27,15 @@
       link: ($scope, elem, attr) => {
         $scope.invert = ('invert' in attr);
         $scope.showBack = (!!$stateParams.backTo || !!$scope.goBack);
-        $scope.go = () => {
+        $scope.goStateBack = () => {
+          $rootScope.goingBackwards = true;
           if ($scope.goBackParams) {
             $state.go($stateParams.backTo || $scope.goBack || 'walletHome', JSON.parse($scope.goBackParams));
           } else {
             $state.go($stateParams.backTo || $scope.goBack || 'walletHome');
           }
         };
+
         $scope.openMenu = () => $rootScope.openMenu();
       }
     };

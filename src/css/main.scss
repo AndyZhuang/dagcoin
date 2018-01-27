@@ -1008,8 +1008,8 @@ label {
     }
   }
 
-  &.required{
-    &:after{
+  &.required {
+    &:after {
       content: "*";
       position: relative;
       font-size: 10px;
@@ -2042,7 +2042,7 @@ input.ng-invalid-match, input.ng-invalid-match:focus {
   visibility: visible;
 }
 
-@-webkit-keyframes shake{
+@-webkit-keyframes shake {
   10%, 90% {
     transform: translate3d(-1px, 0, 0);
   }
@@ -2095,8 +2095,8 @@ input.ng-invalid-match, input.ng-invalid-match:focus {
     box-shadow: none;
     background: #fff;
     animation-duration: 0.6s;
-    -webkit-animation-timing-function: cubic-bezier(0.36,0.07,0.19,0.97);
-    animation-timing-function: cubic-bezier(0.36,0.07,0.19,0.97);
+    -webkit-animation-timing-function: cubic-bezier(0.36, 0.07, 0.19, 0.97);
+    animation-timing-function: cubic-bezier(0.36, 0.07, 0.19, 0.97);
 
     &.min {
       padding: 4px 10px;
@@ -2391,13 +2391,6 @@ a.a_none {
 }
 
 #qr-scanner, #address-share {
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 50px;
-  width: 50px;
-  z-index: 12;
-
   svg-icon {
     position: absolute;
     top: 50%;
@@ -3042,6 +3035,39 @@ section {
   &.right-small {
     left: initial;
   }
+
+  transition: transform 0.5s ease;
+  transform: translate3d(0, 0, 0);
+
+  &:not(.backwards) {
+    &.ng-enter {
+      transform: translate3d(100%, 0, 0); // Move to the right (up to 100% of width)
+    }
+    &.ng-enter-active {
+      transform: translate3d(0, 0, 0);
+    }
+    &.ng-leave {
+      transform: translate3d(0, 0, 0);
+    }
+    &.ng-leave-active {
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+
+  &.backwards {
+    &.ng-leave {
+      transform: translate3d(0, 0, 0);
+    }
+    &.ng-leave-active {
+      transform: translate3d(100%, 0, 0);
+    }
+    &.ng-enter {
+      transform: translate3d(-100%, 0, 0);
+    }
+    &.ng-enter-active {
+      transform: translate3d(0, 0, 0);
+    }
+  }
 }
 
 .preferences ul.warnings {
@@ -3222,5 +3248,3 @@ p.color_red {
     }
   }
 }
-
-

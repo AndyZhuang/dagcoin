@@ -639,10 +639,11 @@
         });
     })
     .run(($rootScope, $state, $stateParams, $log, uriHandler, isCordova, profileService, $timeout, nodeWebkit, uxLanguage, animationService, backButton, go) => {
-      $rootScope.$state = $state;
-      $rootScope.$stateParams = $stateParams;
-
-      FastClick.attach(document.body);
+      if ('addEventListener' in document) {
+        document.addEventListener('DOMContentLoaded', () => {
+          FastClick.attach(document.body);
+        }, false);
+      }
 
       uxLanguage.init();
 
@@ -672,7 +673,6 @@
       }
 
       $rootScope.$on('$stateChangeStart', (event, toState, toParams, fromState) => {
-        $rootScope.params = toParams;
         backButton.menuOpened = false;
         go.swipe();
         if (!profileService.profile && toState.needProfile) {
@@ -710,7 +710,7 @@
           event.preventDefault();
           // Time for the backpane to render
           setTimeout(() => {
-            $state.transitionTo(toState);
+            $state.go(toState);
           }, 50);
         }
       });
