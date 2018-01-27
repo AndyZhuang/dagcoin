@@ -9,7 +9,7 @@
         <label class="required" for="address">{{ 'Wallet address' | translate}}</label>
         <input id="address" class="animated"
                ng-class="{'shake error' : (newContact.address.$touched && newContact.address.$invalid || contact.address_error)}"
-               valid-address type="text" ng-model="contact.address" name="address" required>
+               valid-address type="text" ng-model="contact.data.address" name="address" required>
         <div class="has-error" ng-if="contact.address_error">{{contact.address_error}}</div>
       </div>
 
@@ -17,12 +17,12 @@
         <label class="required" for="first_name">{{ 'First name' | translate}}</label>
         <input id="first_name" class="animated"
                ng-class="{'shake error' : newContact.first_name.$touched && newContact.first_name.$invalid}"
-               ng-maxlength="20" type="text" ng-model="contact.first_name" name="first_name" required>
+               ng-maxlength="20" type="text" ng-model="contact.data.first_name" name="first_name" required>
       </div>
 
         <div class="input-wrap">
           <label for="last_name">{{ 'Last name' | translate}}</label>
-          <input id="last_name" type="text" ng-model="contact.last_name" name="last_name">
+          <input id="last_name" type="text" ng-model="contact.data.last_name" name="last_name">
         </div>
 
       <div class="input-wrap">
@@ -37,7 +37,7 @@
 
         <div class="input-wrap">
           <label for="description">{{ 'Description' | translate}}</label>
-          <textarea name="description" id="description" ng-model="contact.description" cols="30" rows="10"></textarea>
+          <textarea name="description" id="description" ng-model="contact.data.description" cols="30" rows="10"></textarea>
         </div>
       </div>
       <div class="contact_form_button_div">

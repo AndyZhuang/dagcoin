@@ -184,28 +184,17 @@
           return value;
         };
 
-        addressbookService.favorites((err, favorites) => {
-          $scope.favorite_contacts = favorites;
-        });
-
-        $scope.transferToFavorite = (contact) => {
-          $rootScope.sendParams = $rootScope.sendParams || {};
-          $rootScope.sendParams.address = contact.address;
-          $rootScope.$emit('Local/SetTab', 'send');
-        };
-
         self.transactionAddress = (address) => {
           if (!address) {
             return { fullName: gettextCatalog.getString('Incoming transaction') };
           }
 
           let fullName = address;
+          const contact = addressbookService.getContact(address);
 
-          addressbookService.getContact(address, (err, contact) => {
-            if (!err && contact) {
-              fullName = `${contact.first_name} ${contact.last_name || ''}`;
-            }
-          });
+          if (contact) {
+            fullName = `${contact.first_name} ${contact.last_name || ''}`;
+          }
 
           return { fullName, address };
           // return { fullName };
@@ -286,11 +275,7 @@
 
             $scope.listEntries = function () {
               $scope.error = null;
-              addressbookService.list((err, ab) => {
-                if (err) {
-                  $scope.error = err;
-                  return;
-                }
+              addressbookService.list((ab) => {
                 $scope.list = ab;
               });
             };
@@ -304,32 +289,29 @@
             $scope.add = function (addressbook) {
               $scope.error = null;
               $timeout(() => {
-                addressbookService.add(addressbook, (err, ab) => {
-                  if (err) {
-                    $scope.error = err;
-                    return;
-                  }
-                  $rootScope.$emit('Local/AddressbookUpdated', ab);
-                  $scope.list = ab;
-                  $scope.editAddressbook = true;
-                  $scope.toggleEditAddressbook();
-                  $scope.$digest();
-                });
+                if (addressbookService.add(addressbook)) {
+                  addressbookService.list((ab) => {
+                    $rootScope.$emit('Local/AddressbookUpdated', ab);
+                    $scope.list = ab;
+                    $scope.editAddressbook = true;
+                    $scope.toggleEditAddressbook();
+                    $scope.$digest();
+                  });
+                }
               }, 100);
             };
 
             $scope.remove = function (addr) {
               $scope.error = null;
               $timeout(() => {
-                addressbookService.remove(addr, (err, ab) => {
-                  if (err) {
-                    $scope.error = err;
-                    return;
-                  }
-                  $rootScope.$emit('Local/AddressbookUpdated', ab);
-                  $scope.list = ab;
-                  $scope.$digest();
-                });
+
+                if(addressbookService.remove(addr)){
+                  addressbookService.list((ab) => {
+                    $rootScope.$emit('Local/AddressbookUpdated', ab);
+                    $scope.list = ab;
+                    $scope.$digest();
+                  })
+                }
               }, 100);
             };
 

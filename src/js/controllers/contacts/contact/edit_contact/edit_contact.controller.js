@@ -9,27 +9,19 @@
 
   function EditContactController($stateParams, addressbookService, $state) {
     const contact = this;
+    const contactData = addressbookService.getContact($stateParams.address) || {};
+
+    Object.keys(contactData).map((key) => {
+      contact.data[key] = contactData[key] || '';
+      return true;
+    });
+
     contact.backParams = { address: $stateParams.address };
-    let contactData = {};
 
     contact.update = () => {
-      contactData.first_name = contact.first_name;
-      contactData.last_name = contact.last_name;
-      contactData.email = contact.email;
-      contactData.description = contact.description;
-
-      addressbookService.update(contactData, () => {
-        $state.go('contact', contact.backParams);
-      });
+      if (addressbookService.update(contactData)) {
+        $state.go('contact', contact.data);
+      }
     };
-
-    contact.address = $stateParams.address;
-    addressbookService.getContact(contact.address, (err, data) => {
-      contactData = data;
-      Object.keys(data).map((key) => {
-        contact[key] = data[key] || '';
-        return true;
-      });
-    });
   }
 })();

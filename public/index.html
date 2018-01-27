@@ -34,7 +34,7 @@
         <div ng-include="'views/includes/alert.html'" ng-if="index.showAlert"></div>
         <div id="sectionContainer">
           <section ui-view="main" id="section"
-                     ng-class="{'main': index.hasProfile, 'backwards': goingBackwards}" ng-show="!index.$state.includes('correspondentDevices')"></section>
+                     ng-class="{'main': index.hasProfile}" ng-show="!index.$state.includes('correspondentDevices')"></section>
             <div ui-view="chat" ng-show="index.$state.includes('correspondentDevices')" class="main" style="overflow: auto;"></div>
         </div>
         <a class="close-menu" ng-click="index.closeMenu()"></a>

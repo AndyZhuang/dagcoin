@@ -17,12 +17,7 @@
     contacts.toggleFavorite = (contact) => {
       contact.favorite = !contact.favorite;
 
-      addressbookService.update(contact, (err) => {
-        if (err) {
-          contact.favorite = !contact.favorite;
-          console.error(err);
-        }
-
+      if (addressbookService.update(contact)) {
         if (contact.favorite) {
           contacts.favoriteListTotal += 1;
         } else {
@@ -30,7 +25,9 @@
         }
 
         loadList();
-      });
+      } else {
+        contact.favorite = !contact.favorite;
+      }
     };
 
     function loadList() {
@@ -39,7 +36,7 @@
       contacts.favoriteList = {};
       contacts.favoriteListTotal = 0;
 
-      addressbookService.list((err, list) => {
+      addressbookService.list((list) => {
         function hashSort(src) {
           const keys = Object.keys(src);
           const target = {};

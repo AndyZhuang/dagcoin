@@ -26,7 +26,7 @@
         ifOk(objRequest) {
           console.log(`request: ${JSON.stringify(objRequest)}`);
           contact.address_error = '';
-          contact.address = objRequest.address;
+          contact.data.address = objRequest.address;
         },
       });
     };
@@ -34,19 +34,14 @@
     contact.create = () => {
       contact.address_error = '';
 
-      addressbookService.add({
-        first_name: contact.first_name,
-        last_name: contact.last_name,
-        address: contact.address,
-        email: contact.email,
-        description: contact.description
-      }, (err) => {
-        if (!err) {
-          return $state.go('contacts');
-        }
-        contact.address_error = err;
-        console.warn(err);
-      });
+      if (addressbookService.getContact(contact.data.address)) {
+        contact.address_error = gettextCatalog.getString('Wallet address is already assigned to another contact.');
+        return false;
+      }
+
+      if (addressbookService.add(contact.data)) {
+        return $state.go('contacts');
+      }
     };
   }
 })();
