@@ -33,13 +33,17 @@
      */
 
     function getContact(address) {
-      list(() => (contacts[address] || false));
+      return list(() => (contacts[address] || false));
     }
 
+    /**
+     * Collect object of all existing contacts from the storage service
+     * @param cb Callback function
+     * @returns {*}
+     */
     function list(cb) {
       if (!contacts) {
         const ab = storageService.get(addressBookKey());
-
         if (ab) {
           const json = JSON.parse(ab);
           contacts = {};
@@ -63,8 +67,12 @@
       return cb(contacts);
     }
 
+    /**
+     * Filter all existing contacts by their param "favorite = true"
+     * @returns {*}
+     */
     function favorites() {
-      list(() => {
+      return list(() => {
         const favoritesList = [];
 
         Object.keys(contacts).map((address) => {
@@ -79,20 +87,24 @@
       });
     }
 
+    /**
+     * Add a new entry to existing contacts
+     * @returns boolean
+     */
     function add(entry) {
-      list(() => {
+      return list(() => {
         contacts[entry.address] = entry;
         return storageService.set(addressBookKey(), JSON.stringify(contacts));
       });
     }
 
     function update(entry, force = false) {
-      list(() => {
+      return list(() => {
         if (force) {
           contacts[entry.address] = entry;
         } else {
-          Object.keys(force).map((key) => {
-            contacts[entry.address][key] = force[key];
+          Object.keys(entry).map((key) => {
+            contacts[entry.address][key] = entry[key];
             return true;
           });
         }
@@ -101,7 +113,7 @@
     }
 
     function remove(addr) {
-      list(() => {
+      return list(() => {
         delete contacts[addr];
         return storageService.set(addressBookKey(), JSON.stringify(contacts));
       });

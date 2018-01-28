@@ -9,18 +9,20 @@
 
   function EditContactController($stateParams, addressbookService, $state) {
     const contact = this;
+    contact.data = {};
     const contactData = addressbookService.getContact($stateParams.address) || {};
 
     Object.keys(contactData).map((key) => {
-      contact.data[key] = contactData[key] || '';
+      contact.data[key] = contactData[key];
       return true;
     });
 
     contact.backParams = { address: $stateParams.address };
 
     contact.update = () => {
-      if (addressbookService.update(contactData)) {
-        $state.go('contact', contact.data);
+      console.log(contact.data);
+      if (addressbookService.update(contact.data)) {
+        $state.go('contact', contact.backParams);
       }
     };
   }

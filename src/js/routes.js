@@ -548,22 +548,8 @@
             },
           }
         })
-        .state('contact', {
-          url: '/contact',
-          params: {
-            backTo: 'contacts',
-            address: null
-          },
-          needProfile: true,
-          views: {
-            main: {
-              templateUrl: 'controllers/contacts/contact/contact.template.html',
-              controller: 'ContactController as contact',
-            }
-          }
-        })
         .state('new_contact', {
-          url: '/contact/new',
+          url: '/contacts/new',
           params: {
             backTo: 'contacts'
           },
@@ -575,11 +561,24 @@
             }
           }
         })
-        .state('edit_contact', {
-          url: '/contact/edit',
+        .state('contact', {
+          url: '/contacts/:address',
           params: {
-            backTo: 'contact',
-            address: null
+            backTo: 'contacts'
+          },
+          needProfile: true,
+          views: {
+            main: {
+              templateUrl: 'controllers/contacts/contact/contact.template.html',
+              controller: 'ContactController as contact',
+            }
+          }
+        })
+
+        .state('edit_contact', {
+          url: '/contact/:address/edit',
+          params: {
+            backTo: 'contact'
           },
           needProfile: true,
           views: {

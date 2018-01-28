@@ -188,7 +188,7 @@
 
       root.set = (key, value) => storage.set(key, value, () => !!root.get(key));
 
-      root.get = key => storage.get(key, value => (value || false));
+      root.get = key => storage.get(key, (err, value) => (value || false));
 
       root.remove = key => storage.remove(key, () => !root.get(key));
 
