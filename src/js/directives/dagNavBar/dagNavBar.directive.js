@@ -10,9 +10,9 @@
     .module('copayApp.directives')
     .directive('dagNavBar', dagNavBar);
 
-  dagNavBar.$inject = ['$state', '$rootScope', '$stateParams'];
+  dagNavBar.$inject = ['$state', '$rootScope', '$stateParams', '$animate'];
 
-  function dagNavBar($state, $rootScope, $stateParams) {
+  function dagNavBar($state, $rootScope, $stateParams, $animate) {
     return {
       restrict: 'E',
       templateUrl: 'directives/dagNavBar/dagNavBar.template.html',
@@ -28,7 +28,6 @@
         $scope.invert = ('invert' in attr);
         $scope.showBack = (!!$stateParams.backTo || !!$scope.goBack);
         $scope.goStateBack = () => {
-          $rootScope.goingBackwards = true;
           if ($scope.goBackParams) {
             $state.go($stateParams.backTo || $scope.goBack || 'walletHome', JSON.parse($scope.goBackParams));
           } else {
@@ -37,6 +36,10 @@
         };
 
         $scope.openMenu = () => $rootScope.openMenu();
+
+        /* document.addEventListener('backbutton', () => {
+          back();
+        }, false); */
       }
     };
   }
