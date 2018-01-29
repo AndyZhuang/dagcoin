@@ -744,7 +744,7 @@ angular.module('copayApp.controllers').controller('correspondentDeviceController
     };
 
     $scope.editCorrespondent = function () {
-      go.path('correspondentDevices.editCorrespondentDevice');
+      go.path('editCorrespondentDevice');
     };
 
     $scope.loadMoreHistory = function (cb) {

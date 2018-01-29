@@ -1,6 +1,6 @@
 <div class="navbar-container" ng-class="{'invert':invert}">
     <div class="navbar-container-triggers">
-        <a dag-state-transition="slide-right" ng-show="showBack" ng-click="goStateBack();">
+        <a dag-state-transition="{{goBackTransition || 'slide-right'}}" ng-show="showBack" ng-click="goStateBack();">
             <svg-icon name="arrow_back" class="back-button"></svg-icon>
         </a>
 

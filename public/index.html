@@ -33,9 +33,8 @@
         <div ng-include="'views/includes/password.html'" ng-if="index.askPassword"></div>
         <div ng-include="'views/includes/alert.html'" ng-if="index.showAlert"></div>
         <div id="sectionContainer">
-          <section ui-view="main" class="section {{viewTransition}}"
-                     ng-class="{'main': index.hasProfile}" ng-show="!index.$state.includes('correspondentDevices')"></section>
-            <div ui-view="chat" ng-show="index.$state.includes('correspondentDevices')" class="main" style="overflow: auto;"></div>
+          <section ui-view="main" class="section {{viewTransition}}" ng-class="{'main': index.hasProfile}"></section>
+            <!--<div ui-view="chat" ng-show="index.$state.includes('correspondentDevices')" class="main" style="overflow: auto;"></div>-->
         </div>
         <a class="close-menu" ng-click="index.closeMenu()"></a>
 

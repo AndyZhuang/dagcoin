@@ -1,4 +1,5 @@
-<div ng-controller="editCorrespondentDeviceController">
+<dag-nav-bar title="{{name}}" go-back-transition="no" go-back="correspondentDevice" invert></dag-nav-bar>
+<div>
 
     <style>
         .purge_chat a {
@@ -7,21 +8,6 @@
             border-width: 0 0 1px 0;
         }
     </style>
-
-    <nav class="tab-bar" style="margin-bottom: 20px;height: 50px;">
-        <section class="left-small" style="background: #fff;">
-            <a
-                    ng-click="$root.go('correspondentDevices.correspondentDevice')"><i class="icon-arrow-left3 icon-back"></i>
-                <span class="text-back">{{'Back'|translate}}</span>
-            </a>
-        </section>
-
-        <section class="middle tab-bar-section" style="background: #fff;">
-            <h1 class="title ellipsis" ng-style="{'color': noColor ? '#4A90E2' : index.backgroundColor}">
-                {{name}}
-            </h1>
-        </section>
-    </nav>
 
     <div class="columns m20t m20b" style="margin: 0 auto;width: 350px;float: none;">
         <div>
@@ -57,7 +43,5 @@
         </div>
     </div>
 
-
     <div class="extra-margin-bottom"></div>
 </div>
-<div ng-include="'views/includes/menu.html'" ng-show="!index.noFocusedWallet"></div>

@@ -233,6 +233,7 @@
           views: {
             main: {
               templateUrl: 'views/preferences.html',
+              controller: 'preferencesController as preferences'
             },
           },
         })
@@ -243,37 +244,39 @@
           deepStateRedirect: true,
           sticky: true,
           views: {
-            chat: {
+            main: {
               templateUrl: 'views/correspondentDevices.html',
               controller: 'correspondentDevicesController'
             },
           },
         })
-        .state('correspondentDevices.correspondentDevice', {
+        .state('correspondentDevice', {
           url: '/correspondentDevice',
           walletShouldBeComplete: false,
           needProfile: true,
           views: {
-            dialog: {
+            main: {
               templateUrl: 'views/correspondentDevice.html',
+              controller: 'correspondentDeviceController'
             },
           },
         })
-        .state('correspondentDevices.editCorrespondentDevice', {
+        .state('editCorrespondentDevice', {
           url: '/editCorrespondentDevice',
           walletShouldBeComplete: false,
           needProfile: true,
           views: {
-            dialog: {
+            main: {
               templateUrl: 'views/editCorrespondentDevice.html',
+              controller: 'editCorrespondentDeviceController'
             },
           },
         })
-        .state('correspondentDevices.addCorrespondentDevice', {
+        .state('addCorrespondentDevice', {
           url: '/addCorrespondentDevice',
           needProfile: true,
           views: {
-            dialog: {
+            main: {
               templateUrl: 'views/addCorrespondentDevice.html',
             },
           },
@@ -283,7 +286,7 @@
           walletShouldBeComplete: false,
           needProfile: true,
           views: {
-            dialog: {
+            main: {
               templateUrl: 'views/inviteCorrespondentDevice.html',
             },
           },
@@ -293,7 +296,7 @@
           walletShouldBeComplete: false,
           needProfile: true,
           views: {
-            dialog: {
+            main: {
               templateUrl: 'views/acceptCorrespondentInvitation.html',
             },
           },

@@ -1,25 +1,7 @@
-
-<div ng-controller="correspondentDeviceController">
-  <nav class="tab-bar">
-    <section class="left-small">
-    <a
-      ng-click="goToCorrespondentDevices()"><i class="icon-arrow-left3 icon-back"></i>
-      <span class="text-back">{{'Back'|translate}}</span>
-    </a>
-    </section>
-
-    <section class="middle tab-bar-section">
-	    <h1 class="title ellipsis" ng-style="{'color': noColor ? '#4A90E2' : index.backgroundColor}">
-	      {{correspondent.name}}
-	    </h1>
-    </section>
-
-    <section class="right-small" ng-click="editCorrespondent()">
-      <a href class="p10">
-        <span class="text-close" translate>Edit</span>
-      </a>
-    </section>
-  </nav>
+<dag-nav-bar title="{{correspondent.name}}" go-back-transition="no" invert go-back="correspondentDevices">
+    <a ui-sref="editCorrespondentDevice" translate>Edit</a>
+</dag-nav-bar>
+<div>
 
 <style>
     .right-side{

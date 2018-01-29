@@ -31,6 +31,8 @@
             angular.element(value).addClass(transition);
             value.addEventListener('transitionend', removeClass, false);
             value.addEventListener('webkitTransitionEnd', removeClass, false);
+            value.addEventListener('animationend', removeClass, false);
+            value.addEventListener('webkitAnimationEnd', removeClass, false);
           });
         });
       }

@@ -22,6 +22,7 @@
         title: '@',
         goBack: '@',
         goBackParams: '@',
+        goBackTransition: '@',
         invert: '&'
       },
       link: ($scope, elem, attr) => {

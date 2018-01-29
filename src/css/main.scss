@@ -3034,45 +3034,52 @@ section {
     left: initial;
   }
 
-  transition: transform 0.5s ease;
-  transform: translate3d(0, 0, 0);
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
 
-  &:not(.slide-left):not(.slide-right){
+  &:not(.slide-left):not(.slide-right):not(.slide-up):not(.slide-down) {
     &.ng-leave {
       display: none;
     }
   }
 
   &.slide-left {
-    &.ng-enter {
-      transform: translate3d(100%, 0, 0); // Move to the right (up to 100% of width)
-    }
     &.ng-enter-active {
-      transform: translate3d(0, 0, 0);
-    }
-    &.ng-leave {
-      transform: translate3d(0, 0, 0);
+      -webkit-animation-name: slideInRight;
+      animation-name: slideInRight;
     }
     &.ng-leave-active {
-      transform: translate3d(-100%, 0, 0);
+      -webkit-animation-name: slideOutLeft;
+      animation-name: slideOutLeft;
     }
   }
 
   &.slide-right {
-    &.ng-enter {
-      transform: translate3d(-100%, 0, 0);
-    }
     &.ng-enter-active {
-      transform: translate3d(0, 0, 0);
-    }
-    &.ng-leave {
-      transform: translate3d(0, 0, 0);
+      -webkit-animation-name: slideInLeft;
+      animation-name: slideInLeft;
     }
     &.ng-leave-active {
-      transform: translate3d(100%, 0, 0);
+      -webkit-animation-name: slideOutRight;
+      animation-name: slideOutRight;
     }
   }
 
+  &.slide-up{
+    &.ng-enter-active {
+      -webkit-animation-name: slideInUp;
+      animation-name: slideInUp;
+    }
+  }
+
+  &.slide-up{
+    &.ng-leave-active {
+      -webkit-animation-name: slideOutDown;
+      animation-name: slideOutDown;
+    }
+  }
 }
 
 .preferences ul.warnings {

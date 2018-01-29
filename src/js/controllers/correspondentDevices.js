@@ -15,7 +15,7 @@
 
       let listScrollTop = 0;
 
-      $scope.$on('$stateChangeStart', (evt, toState) => {
+      /*$scope.$on('$stateChangeStart', (evt, toState) => {
         if (toState.name === 'correspondentDevices') {
           $scope.readList();
           $rootScope.$emit('Local/SetTab', 'chat', true);
@@ -23,13 +23,13 @@
             document.querySelector('[ui-view=chat]').scrollTop = listScrollTop;
           }, 5);
         }
-      });
+      });*/
 
       $scope.showCorrespondent = function (correspondent) {
         console.log('showCorrespondent', correspondent);
         correspondentListService.currentCorrespondent = correspondent;
-        listScrollTop = document.querySelector('[ui-view=chat]').scrollTop;
-        go.path('correspondentDevices.correspondentDevice');
+        // listScrollTop = document.querySelector('[ui-view=chat]').scrollTop;
+        go.path('correspondentDevice');
       };
 
       $scope.toggleEditCorrespondentList = function () {
@@ -43,8 +43,7 @@
 
       $scope.beginAddCorrespondent = function () {
         console.log('beginAddCorrespondent');
-        listScrollTop = document.querySelector('[ui-view=chat]').scrollTop;
-        $state.go('correspondentDevices.addCorrespondentDevice');
+        $state.go('addCorrespondentDevice');
       };
 
 
@@ -98,9 +97,6 @@
             $scope.hideRemove = true;
             $scope.readList();
             $rootScope.$emit('Local/SetTab', 'chat', true);
-            setTimeout(() => {
-              document.querySelector('[ui-view=chat]').scrollTop = listScrollTop;
-            }, 5);
           });
         });
       };
