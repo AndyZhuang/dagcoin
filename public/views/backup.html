@@ -63,16 +63,10 @@
 
           <div ng-show="wordsC.show">
             <div class="m10t text-center columns">
-              <div class="size-12 text-gray">
-      <span translate>
-      Once you have written your wallet seed down, it is recommended to delete it from this device.
-      </span>
-              </div>
-              <button class="btn btn_red-full round tiny" ng-click="wordsC.delete()" style="width: auto !important;">
-                <i class="fi-trash"></i>
-                <span translate>
-      DELETE WORDS
-      </span>
+              <div class="size-12 text-gray" translate>Once you have written your wallet seed down, it is recommended to delete it from this device.</div>
+              <button class="btn btn_red tiny" ng-click="wordsC.delete()">
+                <svg-icon name="delete"></svg-icon>
+                <span translate>DELETE WORDS</span>
               </button>
             </div>
           </div>

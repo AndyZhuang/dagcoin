@@ -25,11 +25,20 @@ button {
   text-align: center;
 
   svg-icon{
-    margin-left: -20px;
+    top: -1px;
 
     svg{
       width: 20px;
       height: 20px;
+    }
+  }
+
+  &.tiny{
+    svg-icon{
+      svg{
+        width: 16px;
+        height: 16px;
+      }
     }
   }
 
@@ -40,6 +49,10 @@ button {
 
   & + .btn {
     margin-top: 13px;
+  }
+
+  &.inline{
+    width: auto;
   }
 
   &:not([disabled]) {

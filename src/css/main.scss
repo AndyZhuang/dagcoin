@@ -354,6 +354,17 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill, inpu
     top: 0;
     height: 100%;
   }
+
+  &:before {
+    content: "";
+    position: fixed;
+    background: transparent;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
 }
 
 .content_hero {
@@ -2211,6 +2222,11 @@ textarea {
   line-height: inherit;
 }
 
+.clear {
+  clear: both;
+  display: block;
+}
+
 .clearfix:after {
   display: block;
   content: "";
@@ -3131,7 +3147,7 @@ p.color_red {
     margin-right: 0;
   }
 
-  .mCSB_6_scrollbar{
+  .mCSB_scrollTools_vertical{
     z-index: 12;
   }
 }
