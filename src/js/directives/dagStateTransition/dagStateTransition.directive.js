@@ -18,7 +18,7 @@
         element.bind('click', () => {
           const sections = document.getElementsByClassName('section');
           const views = angular.element(sections);
-          const transition = attr.dagStateTransition || 'slide-left';
+          const transition = attr.dagStateTransition;
 
           $rootScope.viewTransition = transition;
 
@@ -28,11 +28,13 @@
           }
 
           angular.forEach(views, (value) => {
-            angular.element(value).addClass(transition);
-            value.addEventListener('transitionend', removeClass, false);
-            value.addEventListener('webkitTransitionEnd', removeClass, false);
-            value.addEventListener('animationend', removeClass, false);
-            value.addEventListener('webkitAnimationEnd', removeClass, false);
+            if (transition) {
+              angular.element(value).addClass(transition);
+              value.addEventListener('transitionend', removeClass, false);
+              value.addEventListener('webkitTransitionEnd', removeClass, false);
+              value.addEventListener('animationend', removeClass, false);
+              value.addEventListener('webkitAnimationEnd', removeClass, false);
+            }
           });
         });
       }

@@ -1,4 +1,4 @@
-<dag-nav-bar title="{{name}}" go-back-transition="no" go-back="correspondentDevice" invert></dag-nav-bar>
+<dag-nav-bar title="{{name}}" go-back-transition="false" go-back="correspondentDevice" invert></dag-nav-bar>
 <div>
 
     <style>
@@ -9,7 +9,7 @@
         }
     </style>
 
-    <div class="columns m20t m20b" style="margin: 0 auto;width: 350px;float: none;">
+    <div class="columns m20t m20b">
         <div>
             <span translate>Full address:</span>
             <div class="size-10 text-gray ellipsis">{{correspondent.device_address}}@{{hub}}</div>

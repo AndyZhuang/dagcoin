@@ -281,23 +281,25 @@
             },
           },
         })
-        .state('correspondentDevices.inviteCorrespondentDevice', {
+        .state('inviteCorrespondentDevice', {
           url: '/inviteCorrespondentDevice',
           walletShouldBeComplete: false,
           needProfile: true,
           views: {
             main: {
               templateUrl: 'views/inviteCorrespondentDevice.html',
+              controller: 'inviteCorrespondentDeviceController'
             },
           },
         })
-        .state('correspondentDevices.acceptCorrespondentInvitation', {
+        .state('acceptCorrespondentInvitation', {
           url: '/acceptCorrespondentInvitation',
           walletShouldBeComplete: false,
           needProfile: true,
           views: {
             main: {
               templateUrl: 'views/acceptCorrespondentInvitation.html',
+              controller: 'acceptCorrespondentInvitationController'
             },
           },
         })
