@@ -2,8 +2,7 @@
 
 <div class="content preferences" ng-init="preferences.init()">
 
-  <h4></h4>
-  <ul ng-show="!index.noFocusedWallet">
+  <ul class="preferences_links" ng-show="!index.noFocusedWallet">
     <li dag-state-transition="slide-left" dag-right-icon="chevron-thin-right" ui-sref="preferencesAlias">
       <div translate>Wallet Alias</div>
       <div class="value">{{index.alias||index.walletName}}</div>
