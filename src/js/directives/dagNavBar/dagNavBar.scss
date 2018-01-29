@@ -75,7 +75,8 @@
 
   &.invert {
     background: transparent;
-    color: #d51f26
+    color: #444;
+    border-bottom: 1px solid #eee;
   }
 
   &:not(.invert) {

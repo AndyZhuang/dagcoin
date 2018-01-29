@@ -514,6 +514,16 @@
             },
           },
         })
+        .state('preferencesWalletType', {
+          url: '/preferencesWalletType',
+          needProfile: true,
+          views: {
+            main: {
+              templateUrl: 'views/preferencesWalletType.html',
+              controller: 'preferencesWalletTypeController as vm'
+            },
+          },
+        })
         .state('transactions', {
           url: '/transactions',
           params: {

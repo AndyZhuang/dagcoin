@@ -347,8 +347,8 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill, inpu
 .content {
   width: 100%;
   position: relative;
-  overflow: auto;
   flex: 1;
+  z-index: 1;
 
   &.disclaimer {
     top: 0;
@@ -3080,17 +3080,6 @@ section {
       animation-name: slideOutDown;
     }
   }
-}
-
-.preferences ul.warnings {
-  margin: 20px 0;
-  background-color: transparent;
-  text-align: center;
-}
-
-.preferences ul.warnings li {
-  border-bottom: none;
-  padding: 0;
 }
 
 .state_icon svg-icon svg {
