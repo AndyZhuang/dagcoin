@@ -1,6 +1,5 @@
 @import "variables";
 @import "mobile";
-@import "dagNavBar";
 @import "settings";
 /* Components */
 @import "components/buttons";
@@ -3149,6 +3148,11 @@ p.color_red {
 
   .mCSB_scrollTools_vertical{
     z-index: 12;
+  }
+
+  .mCSB_buttonDown{
+    background: transparent!important;
+    display: none;
   }
 }
 

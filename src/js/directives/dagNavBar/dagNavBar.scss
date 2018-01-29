@@ -1,17 +1,19 @@
 @import "../../../css/variables";
 
+$nav_bar_height: 50px;
+
 .navbar-container {
   position: relative;
   z-index: 2;
-  height: 50px;
-  background: $red;
+  height: $nav_bar_height;
+  background: $main_color;
   color: #fff;
 
   .navbar-container-triggers {
     position: absolute;
     z-index: 1;
-    height: 50px;
-    line-height: 50px;
+    height: $nav_bar_height;
+    line-height: $nav_bar_height;
     left: 0;
     top: 0;
     min-width: 50px;
@@ -21,12 +23,12 @@
       color: currentColor;
       height: 100%;
       width: 50px;
-      display: block;
+      display: inline-block;
     }
 
     &.navbar-container-triggers-right {
       left: auto;
-      right: 0
+      right: 0;
     }
   }
 
@@ -34,7 +36,7 @@
     width: 100%;
     padding: 0 50px;
     text-align: center;
-    line-height: 50px;
+    line-height: $nav_bar_height;
     font-weight: 600;
     font-size: 16px;
     text-transform: uppercase;
@@ -44,10 +46,12 @@
     }
   }
 
-  .navbar-container-back-trigger svg {
-    width: 16px;
-    height: 16px;
-    margin-top: -8px
+  .navbar-container-back-trigger {
+    svg {
+      width: 16px;
+      height: 16px;
+      margin-top: -8px;
+    }
   }
 
   svg-icon {
@@ -63,22 +67,20 @@
       }
     }
 
-    &.back-button{
-      svg{
+    &.back-button {
+      svg {
         width: 16px;
         height: 16px;
       }
     }
   }
 
-
-
   &.invert {
     background: transparent;
-    border-bottom: 1px solid #eee;
+    color: $main_color;
   }
 
   &:not(.invert) {
-    text-shadow: 1px 1px 1px #a8191e
+    text-shadow: 1px 1px 1px darken($main_color, 10);
   }
 }

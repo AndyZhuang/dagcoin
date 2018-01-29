@@ -554,14 +554,21 @@
         })
         .state('contacts', {
           url: '/contacts',
-          params: {
-            backTo: null
-          },
           needProfile: true,
           views: {
             main: {
               templateUrl: 'controllers/contacts/contacts.template.html',
               controller: 'ContactsController as contacts'
+            },
+          }
+        })
+        .state('search_contacts', {
+          url: '/search_contacts',
+          needProfile: true,
+          views: {
+            main: {
+              templateUrl: 'controllers/contacts/search_contacts/search_contacts.template.html',
+              controller: 'SearchContactsController as contacts'
             },
           }
         })

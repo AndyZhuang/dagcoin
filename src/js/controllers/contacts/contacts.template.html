@@ -1,16 +1,11 @@
 <dag-nav-bar title="{{ 'Address Book' | translate }}">
+  <a ui-sref="search_contacts">
+    <svg-icon name="search2"></svg-icon>
+  </a>
   <a ui-sref="new_contact">
     <svg-icon name="add"></svg-icon>
   </a>
 </dag-nav-bar>
-
-<!--<div class="contacts_search_bar">
-        <svg-icon name="search2"></svg-icon>
-        <svg-icon name="cancel" class="clear_icon" ng-click="contacts.clearFilter()"></svg-icon>
-        <input class="contacts_search_bar_input" type="text" name="search" ng-change="contacts.filterList()"
-               ng-model="contacts.search"
-               placeholder="{{ 'Search' | translate}}">
-      </div>-->
 
 <div class="content contacts" ng-class="{'no_contacts' : !contacts.listTotal}">
   <div ng-if="!contacts.listTotal" class="no_contacts_message">
@@ -38,7 +33,7 @@
     <ks-swiper-slide class="swiper-slide">
 
       <div class="contacts_list" ng-scrollbars>
-        <div ng-repeat="(letter, list) in contacts.list">
+        <div class="contacts_list_group" ng-repeat="(letter, list) in contacts.list">
           <h4 class="contacts_list_letter">{{letter}}</h4>
           <table>
             <tbody>
@@ -47,7 +42,6 @@
                 <div class="avatar"></div>
                 <a class="contacts_list_contact_info_full_name" ui-sref="contact({address: '{{contact.address}}'})">{{contact.first_name}}
                   {{contact.last_name}}</a>
-                <div class="contacts_list_contact_info_email">{{contact.email}}</div>
               </td>
               <td class="contacts_list_contact_favorite" ng-click="contacts.toggleFavorite(contact)">
                 <div class="contacts_list_contact_favorite_trigger" ng-class="{'selected' : contact.favorite}">
@@ -74,7 +68,6 @@
                 <div class="avatar"></div>
                 <a class="contacts_list_contact_info_full_name" ui-sref="contact({address: '{{contact.address}}'})">{{contact.first_name}}
                   {{contact.last_name}}</a>
-                <div class="contacts_list_contact_info_email">{{contact.email}}</div>
               </td>
               <td class="contacts_list_contact_favorite" ng-click="contacts.toggleFavorite(contact)">
                 <div class="contacts_list_contact_favorite_trigger" ng-class="{'selected' : contact.favorite}">

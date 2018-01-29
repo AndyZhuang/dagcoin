@@ -1,7 +1,7 @@
 @import "../../../css/variables";
 
 .contacts {
-  .swiper-container{
+  .swiper-container {
     position: absolute;
     left: 0;
     top: 50px;
@@ -59,29 +59,27 @@
 
     svg-icon {
       color: #b3bbc4;
-      position: absolute;
-      left: 0;
-      top: 0;
-      cursor: pointer;
-      height: 100%;
-      width: 40px;
-      display: block;
-      z-index: 1;
 
       svg {
-        position: absolute;
-        top: 50%;
-        margin-top: -8px;
-        left: 50%;
-        margin-left: -8px;
         width: 16px;
         height: 16px;
       }
 
-      &.clear_icon {
-        left: auto;
-        right: 0;
+      &.search_icon{
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        margin-top: -8px;
       }
+    }
+
+    .clear_icon{
+      padding: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 40px;
     }
 
     .contacts_search_bar_input {
@@ -97,7 +95,12 @@
   }
 
   .contacts_list {
-    padding: 0 10px;
+    height: 100%;
+    position: relative;
+
+    .contacts_list_group {
+      padding: 20px;
+    }
 
     .contacts_list_letter {
       color: #a1a7af;

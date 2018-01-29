@@ -33,7 +33,6 @@
       contacts.swiper = swiper;
 
       swiper.on('slideChangeStart', () => {
-        console.log('change');
         $timeout(() => {
           contacts.activeTabIndex = swiper.activeIndex;
         }, 0);
