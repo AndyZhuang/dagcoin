@@ -153,8 +153,6 @@
           eventBus.removeListener('new_wallet_address', onNewWalletAddress);
         });
 
-        // $rootScope.$digest();
-
         // const accept_msg = gettextCatalog.getString('Accept');
         // const cancel_msg = gettextCatalog.getString('Cancel');
         // const confirm_msg = gettextCatalog.getString('Confirm');
