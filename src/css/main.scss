@@ -3066,20 +3066,6 @@ section {
       animation-name: slideOutRight;
     }
   }
-
-  &.slide-up{
-    &.ng-enter-active {
-      -webkit-animation-name: slideInUp;
-      animation-name: slideInUp;
-    }
-  }
-
-  &.slide-up{
-    &.ng-leave-active {
-      -webkit-animation-name: slideOutDown;
-      animation-name: slideOutDown;
-    }
-  }
 }
 
 .state_icon svg-icon svg {
@@ -3134,12 +3120,20 @@ p.color_red {
   line-height: 40px;
 }
 
-.mCSB_inside > .mCSB_container {
-  margin-right: 0;
-}
+.mCSB_inside{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
 
-#mCSB_1_scrollbar_vertical {
-  z-index: 12;
+  > .mCSB_container {
+    margin-right: 0;
+  }
+
+  .mCSB_6_scrollbar{
+    z-index: 12;
+  }
 }
 
 .swiper_tabs_menu {

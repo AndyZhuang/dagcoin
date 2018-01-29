@@ -13,17 +13,12 @@
 
       $scope.hideRemove = true;
 
-      let listScrollTop = 0;
-
-      /*$scope.$on('$stateChangeStart', (evt, toState) => {
+      $scope.$on('$stateChangeStart', (evt, toState) => {
         if (toState.name === 'correspondentDevices') {
           $scope.readList();
           $rootScope.$emit('Local/SetTab', 'chat', true);
-          setTimeout(() => {
-            document.querySelector('[ui-view=chat]').scrollTop = listScrollTop;
-          }, 5);
         }
-      });*/
+      });
 
       $scope.showCorrespondent = function (correspondent) {
         console.log('showCorrespondent', correspondent);
@@ -40,12 +35,6 @@
       $scope.toggleSelectCorrespondentList = function (addr) {
         $scope.selectedCorrespondentList[addr] = !$scope.selectedCorrespondentList[addr];
       };
-
-      $scope.beginAddCorrespondent = function () {
-        console.log('beginAddCorrespondent');
-        $state.go('addCorrespondentDevice');
-      };
-
 
       $scope.readList = function () {
         $scope.error = null;

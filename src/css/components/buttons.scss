@@ -24,6 +24,15 @@ button {
   text-decoration: none;
   text-align: center;
 
+  svg-icon{
+    margin-left: -20px;
+
+    svg{
+      width: 20px;
+      height: 20px;
+    }
+  }
+
   &:hover, &:focus {
     color: $main_color;
     background: transparent;
