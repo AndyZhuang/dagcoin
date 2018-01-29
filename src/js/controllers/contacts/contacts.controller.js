@@ -5,14 +5,10 @@
     .module('copayApp.controllers')
     .controller('ContactsController', ContactsController);
 
-  ContactsController.$inject = ['addressbookService'];
+  ContactsController.$inject = ['addressbookService', '$timeout'];
 
-  function ContactsController(addressbookService) {
+  function ContactsController(addressbookService, $timeout) {
     const contacts = this;
-
-    contacts.clearFilter = () => {
-      contacts.search = '';
-    };
 
     contacts.toggleFavorite = (contact) => {
       contact.favorite = !contact.favorite;
@@ -29,6 +25,22 @@
         contact.favorite = !contact.favorite;
       }
     };
+
+    contacts.activeTabIndex = 0;
+    contacts.swiper = {};
+
+    contacts.onReadySwiper = (swiper) => {
+      contacts.swiper = swiper;
+
+      swiper.on('slideChangeStart', () => {
+        console.log('change');
+        $timeout(() => {
+          contacts.activeTabIndex = swiper.activeIndex;
+        }, 0);
+      });
+    };
+
+    contacts.activeTab = index => contacts.activeTabIndex === index;
 
     function loadList() {
       contacts.list = {};

@@ -17,10 +17,11 @@
     min-width: 50px;
     text-align: center;
 
-    span{
-      display: block;
+    a, span {
+      color: currentColor;
       height: 100%;
-      width: 100%;
+      width: 50px;
+      display: block;
     }
 
     &.navbar-container-triggers-right {
@@ -70,12 +71,7 @@
     }
   }
 
-  a {
-    color: currentColor;
-    height: 100%;
-    width: 100%;
-    display: block;
-  }
+
 
   &.invert {
     background: transparent;

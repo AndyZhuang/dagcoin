@@ -1834,19 +1834,19 @@ input.ng-invalid-match, input.ng-invalid-match:focus {
     position: relative;
     top: auto;
 
-    &.transactions_details{
+    &.transactions_details {
       background: #efefef;
 
-      .modal-content-header{
+      .modal-content-header {
         padding: 0;
 
-        svg{
+        svg {
           width: 46px;
           height: 46px;
         }
       }
 
-      h4{
+      h4 {
         background: #f9f9f9;
         padding: 10px 10px 30px 15px;
         border-radius: 10px;
@@ -1854,21 +1854,21 @@ input.ng-invalid-match, input.ng-invalid-match:focus {
         border: 1px solid darken(#f9f9f9, 5);
       }
 
-      .modal-content-body{
-        >ul{
+      .modal-content-body {
+        > ul {
           background: #fff;
           padding: 10px;
           border: 1px solid #eee;
           border-radius: 5px;
 
-          li{
+          li {
             padding: 5px 10px 5px 40px;
 
-            svg{
+            svg {
               left: 5px;
             }
 
-            strong{
+            strong {
               font-size: 12px;
               text-transform: uppercase;
             }
@@ -1919,7 +1919,7 @@ input.ng-invalid-match, input.ng-invalid-match:focus {
             border-bottom: none;
           }
 
-          svg-icon{
+          svg-icon {
             position: absolute;
             left: 0;
             top: 0;
@@ -1930,13 +1930,11 @@ input.ng-invalid-match, input.ng-invalid-match:focus {
               width: 22px;
               height: 22px;
               position: absolute;
-              left:0;
+              left: 0;
               top: 50%;
               margin-top: -11px;
             }
           }
-
-
 
           div {
             &.value {
@@ -2570,7 +2568,7 @@ canvas {
       vertical-align: middle;
     }
 
-    .price-separator{
+    .price-separator {
       position: absolute;
       text-indent: -9999px;
     }
@@ -3039,7 +3037,13 @@ section {
   transition: transform 0.5s ease;
   transform: translate3d(0, 0, 0);
 
-  &:not(.backwards) {
+  &:not(.slide-left):not(.slide-right){
+    &.ng-leave {
+      display: none;
+    }
+  }
+
+  &.slide-left {
     &.ng-enter {
       transform: translate3d(100%, 0, 0); // Move to the right (up to 100% of width)
     }
@@ -3054,20 +3058,21 @@ section {
     }
   }
 
-  &.backwards {
-    &.ng-leave {
-      transform: translate3d(0, 0, 0);
-    }
-    &.ng-leave-active {
-      transform: translate3d(100%, 0, 0);
-    }
+  &.slide-right {
     &.ng-enter {
       transform: translate3d(-100%, 0, 0);
     }
     &.ng-enter-active {
       transform: translate3d(0, 0, 0);
     }
+    &.ng-leave {
+      transform: translate3d(0, 0, 0);
+    }
+    &.ng-leave-active {
+      transform: translate3d(100%, 0, 0);
+    }
   }
+
 }
 
 .preferences ul.warnings {
@@ -3139,6 +3144,40 @@ p.color_red {
 
 #mCSB_1_scrollbar_vertical {
   z-index: 12;
+}
+
+.swiper_tabs_menu {
+  > ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0 15px;
+    @include gradientBackground($main_color, darken($main_color, 5), top, bottom);
+
+    > li {
+      flex: 1;
+      cursor: pointer;
+
+      span {
+        text-align: center;
+        display: block;
+        padding: 15px 0;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 12px;
+        color: #fff;
+        opacity: 0.5;
+        border-bottom: 2px solid transparent;
+      }
+
+      &.active {
+        span {
+          opacity: 1;
+          border-bottom: 2px solid #fff;
+        }
+      }
+    }
+  }
 }
 
 @-webkit-keyframes slideOutDown {

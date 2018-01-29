@@ -325,6 +325,7 @@
           views: {
             main: {
               templateUrl: 'views/preferencesLanguage.html',
+              controller: 'preferencesLanguageController as prefLang'
             },
           },
         })
@@ -506,6 +507,7 @@
           views: {
             main: {
               templateUrl: 'views/preferencesGlobal.html',
+              controller: 'preferencesGlobalController as prefGlobal'
             },
           },
         })
