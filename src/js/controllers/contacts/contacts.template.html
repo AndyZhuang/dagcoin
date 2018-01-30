@@ -1,8 +1,5 @@
 <dag-nav-bar title="{{ 'Address Book' | translate }}">
-  <a ui-sref="search_contacts">
-    <svg-icon name="search2"></svg-icon>
-  </a>
-  <a ui-sref="new_contact">
+  <a dag-state-transition="slide-left" ui-sref="new_contact">
     <svg-icon name="add"></svg-icon>
   </a>
 </dag-nav-bar>
@@ -14,7 +11,7 @@
     <p translate>Press "+" in the right upper corner to add your first contact.</p>
   </div>
 
-  <div class="swiper_tabs_menu">
+  <div class="swiper_tabs_menu" ng-if="contacts.listTotal">
     <ul>
       <li ng-class="{'active': contacts.activeTab(0)}" ng-click="contacts.swiper.slideTo(0)">
         <span>{{ 'contacts' | translate }}</span>
@@ -59,7 +56,7 @@
     <ks-swiper-slide class="swiper-slide">
 
       <div class="contacts_list" ng-if="contacts.favoriteListTotal" ng-scrollbars>
-        <div ng-repeat="(letter, list) in contacts.favoriteList">
+        <div class="contacts_list_group" ng-repeat="(letter, list) in contacts.favoriteList">
           <h4 class="contacts_list_letter">{{letter}}</h4>
           <table>
             <tbody>
