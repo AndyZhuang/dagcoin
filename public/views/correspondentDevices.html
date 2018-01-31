@@ -1,3 +1,6 @@
+<div class="backup" ng-if="index.needsBackup" ng-click="index.openBackupNeededModal()">
+  <span translate>Wallet seed not backed up</span>
+</div>
 <dag-nav-bar title="{{ 'Paired devices' | translate}}">
     <a dag-state-transition="slide-left" ui-sref="addCorrespondentDevice">
         <svg-icon name="add"></svg-icon>
