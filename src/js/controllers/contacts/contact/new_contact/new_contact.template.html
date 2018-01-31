@@ -4,6 +4,7 @@
 </dag-nav-bar>
 
 <div class="content" ng-scrollbars>
+  <div class="contact_form">
     <form name="newContact" ng-submit="contact.create()" novalidate>
       <div class="input-wrap">
         <label class="required" for="address">{{ 'Wallet address' | translate}}</label>
@@ -20,10 +21,10 @@
                ng-maxlength="20" type="text" ng-model="contact.data.first_name" name="first_name" required>
       </div>
 
-        <div class="input-wrap">
-          <label for="last_name">{{ 'Last name' | translate}}</label>
-          <input id="last_name" type="text" ng-model="contact.data.last_name" name="last_name">
-        </div>
+      <div class="input-wrap">
+        <label for="last_name">{{ 'Last name' | translate}}</label>
+        <input id="last_name" type="text" ng-model="contact.data.last_name" name="last_name">
+      </div>
 
       <div class="input-wrap">
         <label for="email">{{ 'E-mail' | translate}}</label>
@@ -32,13 +33,15 @@
                ng-focus="visitedEmail = false"
                ng-class="{'shake error' : newContact.email.$touched && newContact.email.$invalid && visitedEmail}"
                ng-model="contact.email" name="email">
-        <div class="has-error" ng-show="newContact.email.$touched && newContact.email.$invalid" translate>E-mail not valid</div>
+        <div class="has-error" ng-show="newContact.email.$touched && newContact.email.$invalid" translate>E-mail not
+          valid
+        </div>
       </div>
 
-        <div class="input-wrap">
-          <label for="description">{{ 'Description' | translate}}</label>
-          <textarea name="description" id="description" ng-model="contact.data.description" cols="30" rows="10"></textarea>
-        </div>
+      <div class="input-wrap">
+        <label for="description">{{ 'Description' | translate}}</label>
+        <textarea name="description" id="description" ng-model="contact.data.description" cols="30"
+                  rows="10"></textarea>
       </div>
       <div class="contact_form_button_div">
         <button class="btn btn_red btn_red-full" ng-disabled="newContact.$invalid" type="submit">
@@ -46,4 +49,5 @@
         </button>
       </div>
     </form>
+  </div>
 </div>
