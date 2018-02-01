@@ -2,6 +2,9 @@ $background: #fff;
 
 .chat {
   background: $background;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
   .send_form {
     position: absolute;
