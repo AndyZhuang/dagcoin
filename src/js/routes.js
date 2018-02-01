@@ -453,6 +453,7 @@
           views: {
             main: {
               templateUrl: 'views/preferencesLogs.html',
+              controller: 'preferencesLogs as logs'
             },
           },
         })
