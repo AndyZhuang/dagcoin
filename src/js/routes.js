@@ -151,8 +151,9 @@
           views: {
             main: {
               templateUrl: 'views/disclaimer.html',
-            },
-          },
+              controller: 'disclaimerController'
+            }
+          }
         })
         .state('walletHome', {
           url: '/',

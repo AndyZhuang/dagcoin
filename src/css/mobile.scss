@@ -285,6 +285,10 @@ a.missing-copayers {
   font-size: 70%;
   padding: 0.2rem;
 }
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
 
 .sidebar {
   background: #fff;
