@@ -704,6 +704,9 @@ to prevent collapsing during animation*/
 .reveal-modal-bg {
   display: none !important;
 }
+.reveal-modal.full::-webkit-scrollbar {
+  display: none;
+}
 
 .reveal-modal.full {
   top: 0 !important;

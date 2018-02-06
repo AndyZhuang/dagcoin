@@ -228,6 +228,7 @@
             };
             $scope.color = fc.backgroundColor;
             $scope.bAllowAddressbook = self.canSendExternalPayment();
+            $scope.selectedWalletsOpt = !!(wallets[0] || !$scope.bAllowAddressbook);
 
             $scope.beforeQrCodeScann = () => {
               $scope.error = null;
